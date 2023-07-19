@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Contract</title>
+    <script src="static/script.js" defer></script>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+  <header class="header1">
+    <nav>
+      <ul>
+        <li><a href="/profile">Профіль</a></li>
+        <li><a href="/mainheader">Підписати контракт</a></li>
+        <li><a href="/">Вийти</a></li>
+      </ul>
+    </nav>
+  </header>
+    <div class="info">
+		  <h1 class="profile">Профіль</h1>
+        <p class="profile_label">Логін: {{.Username}}</p>
+        <p class="profile_label">Пароль: {{.Password}}</p>
+        <p class="profile_label">Email: {{.Email}}</p>
+    </div>
+    <div>
+        <div class="div_pass">
+            <h1>Публічний ключ</h1>
+            <a href="/downloadPublicKey" class="btn btn-primary"><button class="btn_fin1">Завантажити</button></a>
+        </div>
+        <div class="div_pass" id="div_pass">
+          <h1>Приватний ключ</h1>
+          <form method="POST" action="/downloadPrivateKey"> <!-- Исправленный атрибут action -->
+              <a class="btn btn-primary">
+                  <button type="submit" class="btn_fin1" onclick="showPasswordField()">Завантажити</button>
+              </a>    
+              <input class="pass" type="password" id="password" class="form__input" placeholder="Пароль" name="password" required> <!-- Исправленный идентификатор -->
+          </form>
+      </div>
+    </div>
+    <script>
+        function showPasswordField() {
+            var passwordField = document.getElementById("passwordField").value;
+
+            if (passwordField !== "") {
+                alert("Пароль введено!");
+            }
+            else{
+                alert("Введіть пароль!");
+            }
+        }
+    </script>
+</body>
+</html>
